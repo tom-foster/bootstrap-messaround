@@ -7,12 +7,51 @@
 <body>
   <h1>Designing in the console</h1>
   <p>You'll need to inspect to see the trickery.</p>
+
+  <div id="clockdiv"></div>
+
   <script>
   console.log("%c Hello developer world!",
   'padding-top: 30px; padding-bottom: 30px; margin-bottom: 30px; margin: .67em 0; font-size: 2em; background-color: #eee;');
   console.log("%cHmm let me see if I can change that font",
   'font-family: Roboto, Comic Sans; font-size: 1.6em; background-color: pink; font-weight: 700;');
   console.log("%cCursive Power!", 'font-family: cursive; font-size: 1.6em;');
+  </script>
+
+  <script>
+    var deadline = '2016-05-05 10:30:00 GMT+00:00';
+
+    function getTimeRemaining(endtime) {
+      var t = Date.parse(endtime) - Date.pase(new Date());
+      var seconds = Math.floor((t/1000) % 60);
+      var minutes = Math.floor((t/1000/60) % 60);
+      var hours = Math.floor((t/(1000*60*60)) % 24);
+      var days = Math.floor( t/(1000*60*60*24));
+      return {
+          'total': t,
+          'days': days,
+          'hours': hours,
+          'minutes': minutes,
+          'seconds': seconds
+      };
+    }
+
+    function initializeClock(id, endtime) {
+      var clock = document.getElementById(id);
+      var timeinterval = setInterval(function(){
+        var t = getTimeRemaining(endtime);
+        clock.innerHTML = 'days: ' + t.days + '<br>' +
+                          'hours:' + t.hours + '<br>' +
+                          'minutes:' + t.minutes + '<br>' +
+                          'seconds:' + t.seconds;
+        if(t.total <= 0){
+          clearInterval(timeinterval);
+        }
+      }, 1000);
+    }
+
+    initializeClock('clockdiv', deadline);
+
   </script>
 
 </body>
