@@ -3,16 +3,75 @@
 <head>
   <meta charset="UTF-8">
   <title>Hello World!</title>
+  <style>
+    body{
+      text-align: center;
+      background: #6900ff;
+      font-family: sans-serif;
+      font-family: 100;
+    }
+
+    h1 {
+      color: #f5e4c9;
+      font-weight: 100;
+      font-size: 40px;
+      margin: 40px 0px 20px;
+    }
+
+    #clockdiv {
+      font-family: sans-serif;
+      color: #dcdcf5;
+      display: inline-block;
+      font-weight: 100;
+      text-align: center;
+      font-size: 30px;
+    }
+
+    #clockdiv > div {
+      padding: 10px;
+      border-radius: 3px;
+      background: #332add;
+      display: inline-block;
+    }
+
+    #clockdiv div > span {
+      padding: 15px;
+      border-radius: 3px;
+      background: #0acdf7;
+      display: inline-block;
+    }
+
+    .smalltext {
+      padding-top: 5px;
+      font-size: 16px;
+    }
+
+    p {
+      color: #fefefe;
+    }
+  </style>
 </head>
 <body>
-  <h1>Designing in the console</h1>
+  <h1>Designing in the console and a countdown clock</h1>
   <p>You'll need to inspect to see the trickery.</p>
 
   <div id="clockdiv">
-    Days: <span class="days"></span><br>
-    Hours: <span class="hours"></span><br>
-    Minutes: <span class="minutes"></span><br>
-    Seconds: <span class="seconds"></span>
+    <div>
+      <span class="days"></span>
+      <div class="smalltext">Days</div>
+    </div>
+    <div>
+      <span class="hours"></span>
+      <div class="smalltext">Hours</div>
+    </div>
+    <div>
+      <span class="minutes"></span>
+      <div class="smalltext">Minutes</div>
+    </div>
+    <div>
+      <span class="seconds"></span>
+      <div class="smalltext">Seconds</div>
+    </div>
   </div>
 
   <script>
@@ -24,7 +83,7 @@
   </script>
 
   <script>
-    var deadline = '2016-05-09';
+    var deadline = '2016-06-20';
 
     function getTimeRemaining(endtime) {
       var t = Date.parse(endtime) - Date.parse(new Date());
