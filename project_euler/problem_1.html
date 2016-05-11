@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Problem 1</title>
+</head>
+<body>
+  <h1>The answer to problem 1</h1>
+  <p id = "answer"></p>
+  <script>
+  var total = 0;
+  for (var i=0; i < 1000; i++){
+    if (i % 5 === 0 || i % 3 === 0) {
+      total += i;
+    }
+  }
+  var answer_to_page = document.getElementById('answer');
+  answer_to_page.innerHTML = total;
+  </script>
+</body>
+</html>
